@@ -139,7 +139,6 @@ public class Kufar_Robot_docker {
             System.out.println(firstName);
             System.out.println(currentDate);
             System.out.println();
-            System.out.println("--------------------");
 
 //            //кликаем по меню
 //            searchPoint.click();

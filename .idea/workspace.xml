@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="115ec60b-5dec-485c-8c26-bcc02dc24fcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/MyLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/MyLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/automationFramework/Kufar_Robot_docker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/automationFramework/Kufar_Robot_docker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
