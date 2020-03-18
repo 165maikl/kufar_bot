@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Kufar_bot" />
+        <module name="kufar_bot" />
       </profile>
     </annotationProcessing>
   </component>
