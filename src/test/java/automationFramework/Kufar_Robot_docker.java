@@ -34,35 +34,16 @@ public class Kufar_Robot_docker {
 
     public RemoteWebDriver driver;
     private WebDriverWait wait;
-
     private int numberOfSearchResults;
     private String a;
-    private String firstName;
-    private String lastName;
+    private String filingDate;
+    private String filingTime;
     private String currentDate;
-
-
     private Boolean isPresent;
-
-
-    WebElement searchPoint;
-
+    private WebElement searchPoint;
     private ArrayList<String> tabs;
-
-
-    List<WebElement> searchResults;
-    WebElement scrollPoint, scrollPoint1, scrollPoint2;
-
-    String textWithBMPCharacters;
-    String textWithoutBMPCharacters;
-    ArrayList<String> textList;
-
+    private List<WebElement> searchResults;  
     Actions actions;
-
-    private String urlLI;
-
-    //переменная для цикла перебора контактов
-    private int currentContact = 0;
 
     @BeforeClass
     public void start() throws Exception {//
@@ -88,47 +69,39 @@ public class Kufar_Robot_docker {
 
     @Test //(retryAnalyzer = Retry.class)
     public void getBasicInfo() throws Exception {
-
-        Thread.sleep(4000);
-
         driver.get(Constant.URL);
         wait.until(ExpectedConditions.presenceOfElementLocated(Kufar_Home_Page.KUFAR_SEARCHBAR));
         Log.info("Открыли страницу Kufar");
         Kufar_Home_Page.searchbar(driver).sendKeys("форматно" + Keys.ENTER);
         Log.info("Ввели поисковый запрос");
+        //Thread.sleep используется только в целях дебага
         Thread.sleep(2000);
-
         Kufar_Home_Page.lnk_machineryCategory(driver).click();
         Log.info("Кликнули по ссылке Станки и оборудование");
-
+        //Thread.sleep используется только в целях дебага
         Thread.sleep(2000);
-
         //определение списка выдач на странице
         searchResults = driver.findElements(Kufar_SearchResults_Page.KUFAR_SEARCH_RESULT_ITEM);
-
         //сохраняем количество выдач
         numberOfSearchResults = searchResults.size();
-
         //проходим по пунктам меню
         for (int i = 0; i < numberOfSearchResults; i++) {
-
             searchResults = driver.findElements(Kufar_SearchResults_Page.KUFAR_SEARCH_RESULT_ITEM);
             searchPoint = searchResults.get(i);
             a = searchPoint.findElement(By.cssSelector(".k-Hixp-3cfa3")).getText();
-
-            //разделяем полное имя на имя и фамилию
+            //разделяем дату и время
             int idx = a.lastIndexOf(' ');
             if (idx == -1)
                 throw new IllegalArgumentException("Only a single name: " + a);
-            firstName = a.substring(0, idx);
-            lastName  = a.substring(idx + 1);
+            filingDate = a.substring(0, idx);
+            filingTime = a.substring(idx + 1);
 
-            //проверяем jobTitle на наличие лишнего слова Title и при наличии - удаляем
+            //проверяем filingDate на наличие лишнего лишнего символа и удаляем
             try{
                 Scanner in = new Scanner(System.in);
                 String delete;
                 delete = ",";
-                firstName = firstName.replace (delete, "");
+                filingDate = filingDate.replace (delete, "");
             }catch (Exception e){
                 throw(e);
             }
@@ -136,7 +109,7 @@ public class Kufar_Robot_docker {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM.");
             Calendar calendar = new GregorianCalendar();
             currentDate = dateFormat.format(calendar.getTime());
-            System.out.println(firstName);
+            System.out.println(filingDate);
             System.out.println(currentDate);
             System.out.println();
 
@@ -173,7 +146,7 @@ public class Kufar_Robot_docker {
 //            }
         }
 
-
+        //Thread.sleep используется только в целях дебага
         Thread.sleep(3000);
 
 
