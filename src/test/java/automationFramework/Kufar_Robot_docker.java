@@ -58,7 +58,7 @@ public class Kufar_Robot_docker {
         capabilities.setCapability("enableVideo", false);
 
         driver = new RemoteWebDriver(
-                URI.create("http://192.168.4.117:4444/wd/hub").toURL(),
+                URI.create("http://192.168.1.6:4444/wd/hub").toURL(),
                 capabilities
         );
         Log.info("RemoteWebDriver инициализирован");
