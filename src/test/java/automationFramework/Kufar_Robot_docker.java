@@ -112,44 +112,10 @@ public class Kufar_Robot_docker {
             System.out.println(filingDate);
             System.out.println(currentDate);
             System.out.println();
-
-//            //кликаем по меню
-//            searchPoint.click();
-//
-//            tabs = new ArrayList<String>(driver.getWindowHandles());
-//            driver.switchTo().window(tabs.get(1));
-//            Thread.sleep(2000);
-//            driver.close();
-//            driver.switchTo().window(tabs.get(0));
-
-
-//            driver.navigate().back();
-//            Thread.sleep(2000);
-
-
-//            Boolean isPresent = driver.findElements(Hubspot_Contacts_Page.HUBSPOT_NUMBER_OF_CONTACTS).size() > 0;
-//            if (isPresent)
-//            {
-//                driver.findElement(Hubspot_Contacts_Page.HUBSPOT_NUMBER_OF_CONTACTS).click();
-//                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-selenium-test=profile-settings-actions-btn]")));
-//                driver.findElement(By.cssSelector("[data-selenium-test=profile-settings-actions-btn]")).click();
-//
-//                wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[data-selenium-test*=delete]")));
-//                Thread.sleep(500);
-//                driver.findElement(By.cssSelector("[data-selenium-test*=delete]")).click();
-//                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-selenium-test=delete-dialog-confirm-button]")));
-//                driver.findElement(By.cssSelector("[data-selenium-test=delete-dialog-confirm-button]")).click();
-//                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".empty-state-message, .private-link.uiLinkWithoutUnderline.uiLinkDark.truncate-text.align-center")));
-//
-//            } else {
-//
-//            }
         }
 
         //Thread.sleep используется только в целях дебага
         Thread.sleep(3000);
-
-
         ((JavascriptExecutor) driver).executeScript("window.open('https://mail.ru/','_blank')");
         tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
@@ -157,8 +123,8 @@ public class Kufar_Robot_docker {
         wait.until(ExpectedConditions.presenceOfElementLocated(Mail_LogIn_Page.MAIL_USER_NAME));
         Mail_SignIn_Action.Execute(driver);
         Thread.sleep(4000);
+        // ПРОДОЛЖЕНИЕ СЛЕДУЕТ ПО МЕРЕ ПОЯВЛЕНИЯ СВОБОДНОГО ВРЕМЕНИ:)
     }
-
 
     @AfterMethod
     public void finish(ITestResult result) {
